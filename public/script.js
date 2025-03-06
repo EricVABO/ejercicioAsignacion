@@ -58,9 +58,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   let insertar = document.getElementById("insertarTarea");
   insertar.addEventListener("click", (e) => {
-    let insertarTareaContainer = document.getElementById(
-      "insertarTareaContainer"
-    );
+    let insertarTareaContainer = document.getElementById("insertarTareaContainer");
     if (!insertarTareaContainer) {
       insertarTareaContainer = document.createElement("div");
       insertarTareaContainer.id = "insertarTareaContainer";
@@ -80,25 +78,32 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
       let agregarTarea = document.getElementById("agregarTarea");
       agregarTarea.addEventListener("click", (e) => {
-        
+        let textArea=document.getElementById("descripcionTarea");
         let descripcion_tarea = document.getElementById("descripcionTarea").value.trim();
-        fetch("../control/api/tareas_api.php", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ descripcion_tarea: descripcion_tarea }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            let tareas = document.getElementById("tareas");
-            tareas.innerHTML = "";
-            let verTareas = document.getElementById("verTareas");
-            verTareas.click();
+
+        if(descripcion_tarea==""){
+          
+          textArea.style.border="3px solid red";
+        }else{
+          textArea.style.border="none";
+          fetch("../control/api/tareas_api.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ descripcion_tarea: descripcion_tarea }),
           })
-          .catch((error) => {
-            console.log("Error en la solicitud:", error);
-          });
+            .then((response) => response.json())
+            .then((data) => {
+              let tareas = document.getElementById("tareas");
+              tareas.innerHTML = "";
+              let verTareas = document.getElementById("verTareas");
+              verTareas.click();
+            })
+            .catch((error) => {
+              console.log("Error en la solicitud:", error);
+            });
+        }
       });
     } else {
       insertarTareaContainer.innerHTML = "";
