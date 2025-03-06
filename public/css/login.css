@@ -1,0 +1,120 @@
+html,
+body {
+  width: 100%;
+  height: auto;
+}
+
+main {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  background-color: #f0f1f2;
+}
+
+.titulo {
+  margin-right: 80px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+.fuera {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  padding: 20px;
+  background-color: black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.fuera h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.input-container {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.linea-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.linea {
+  flex-grow: 1;
+  height: 1px;
+  background-color: white;
+}
+
+.o {
+  font-size: 15px;
+  margin: 0 5px;
+  color: white;
+}
+
+a {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.divContrasena {
+  display: flex;
+  align-items: center;
+}
+
+.bx {
+  font-size: 25px;
+  transform: translateX(-35px);
+  cursor: pointer;
+}
+
+i {
+  width: 0;
+
+  border-left: 1px solid lightgrey;
+}
+
+#contrasena {
+  padding-right: 40px;
+}
