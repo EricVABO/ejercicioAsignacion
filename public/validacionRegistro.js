@@ -1,21 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
+    let enviar=document.getElementById("enviar");
     let formulario=document.getElementById("formulario")
     let nombreUsuario = document.getElementById("username");
     let email = document.getElementById("email");
     let password = document.getElementById("password");
-
     let nombreError = document.getElementById("nombreError");
     let emailError = document.getElementById("emailError");
     let passwdError = document.getElementById("passwdError");
     let continuar = true;
-    let validarNombre = /^[a-z]+$/;
-    let validarEmail = /^[a-z]+$/;
-    let validarPasswd = /^[a-z]+$/;
+    let validarNombre = /^[a-zA-Z]+$/;
+    let validarEmail = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
+    let validarPasswd = /^(\d{8,})$/;
 
-    formulario.addEventListener("submit",(e)=>{
-        let continuar=true;
+    enviar.addEventListener("click",(e)=>{
+        e.preventDefault();
+        continuar=true;
+
         if (!nombreUsuario.value.trim()) {
             nombreError.textContent = "Campo vacío";
+            nombreError.style.color="red";
             continuar = false;
         } else if (!validarNombre.test(nombreUsuario.value)) {
             nombreError.textContent = "Formato erróneo";
@@ -27,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
         if (!email.value.trim()) {
             emailError.textContent = "Campo vacío";
+            emailError.style.color="red";
             continuar = false;
         } else if (!validarEmail.test(email.value)) {
             emailError.textContent = "Formato erróneo";
@@ -36,20 +40,20 @@ document.addEventListener("DOMContentLoaded", () => {
             emailError.textContent = "";
         }
 
-        if (!validarPasswd.value.trim()) {
-            nombrePasswd.textContent = "Campo vacío";
+        if (!password.value.trim()) {
+            passwdError.textContent = "Campo vacío";
+            passwdError.style.color="red";
             continuar = false;
         } else if (!validarPasswd.test(password.value)) {
-            nombrePasswd.textContent = "Formato erróneo";
-            nombrePasswd.style.color="red";
+            passwdError.textContent = "Formato erróneo";
+            passwdError.style.color="red";
             continuar = false;
         } else {
-            nombrePasswd.textContent = "";
+            passwdError.textContent = "";
         }
 
-        if (!continuar) {
-            e.preventDefault();
+        if (continuar) {
+           formulario.submit();
         }
     });
-    });
-    
+});  
