@@ -24,5 +24,4 @@ class Consultas extends Conexion
             return $usuario;
         }
     }
-    function tareas($nombre) {}
 }

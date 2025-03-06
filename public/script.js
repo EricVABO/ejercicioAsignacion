@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
       let agregarTarea = document.getElementById("agregarTarea");
       agregarTarea.addEventListener("click", (e) => {
+        
         let descripcion_tarea = document.getElementById("descripcionTarea").value.trim();
         fetch("../control/api/tareas_api.php", {
           method: "POST",
