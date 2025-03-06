@@ -12,12 +12,13 @@ class Control extends Conexion
     {
         $db_conexion = $this->getConexion();
         if ($db_conexion) {
+            $contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
 
             $consulta = "INSERT INTO usuarios (nombre, contrasena, email) VALUES (:nombre, :contrasena, :correo)";
 
             $stmt = $db_conexion->prepare($consulta);
             $stmt->bindParam(':nombre', $nombre);
-            $stmt->bindParam(':contrasena', password_hash($contrasena, PASSWORD_DEFAULT));
+            $stmt->bindParam(':contrasena', $contrasena);
             $stmt->bindParam(':correo', $correo);
             $stmt->execute();
 
