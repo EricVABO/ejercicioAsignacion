@@ -24,15 +24,14 @@
                     <input type="text" id="username" name="username" placeholder="Username" required>
                     <p id="nombreError"></p>
                 </div>
-                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="text" id="email" name="email" placeholder="Email" required>
                 <p id="emailError"></p>
-                <br>
                 <div class="input-container divContrasena">
                     <input type="password" id="password" name="password" placeholder="Password" required>
                     <i class="bx bx-show-alt" name="mostrarContrasena" id="mostrarContrasena"></i>
-                    <p id="passwdError"></p>
                 </div>
-                <button type="submit" name="enviar" id="enviar">Registrase</button>
+                <p id="passwdError"></p>
+                <button type="submit" name="enviar" id="enviar">Registrarse</button>
             </form>
         </div>
     </main>
